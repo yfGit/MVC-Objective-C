@@ -24,6 +24,8 @@
 // 多种cell
 @property (nonatomic, strong) NSArray *cellIds;
 @property (nonatomic, strong) NSDictionary *relateDict;
+@property (nonatomic, strong) NSDictionary *gruops;
+@property (nonatomic, assign) BOOL isGroup;
 
 // 配置回调
 @property (nonatomic, copy) ConfigCellBlock configCellBlcok;
@@ -47,14 +49,10 @@
     self = [super init];
     if (self) {
         
-        if (item == nil)
-            LBLog(@"🐶 --> item == nil");
-        else if (aConfigCellBlcok == nil)
-            LBLog(@"🐶 --> aConfigCellBlcok == nil");
         _isNormalCell = YES;
         _dataArr = item;
-        _cellId = aCellIdentifier;
-        _configCellBlcok = [aConfigCellBlcok copy]; // 不用copy显示也正常
+        _cellId  = aCellIdentifier;
+        _configCellBlcok = aConfigCellBlcok;
        
         if ([item[0] isKindOfClass:[NSArray class]]) { // 是否二维数组
             _isTwoDimension = YES;
@@ -62,6 +60,27 @@
     }
     return self;
 }
+
+
+- (instancetype)initWithItem:(NSArray *)item cellIdentifiers:(NSArray *)aCellIdentifiers groups:(NSDictionary *)groups configCellBlcok:(ConfigCellBlock)aConfigCellBlcok
+{
+    self = [super init];
+    
+    if (self) {
+        
+        _isGroup = YES;
+        _dataArr = item;
+        _cellIds = aCellIdentifiers;
+        _configCellBlcok = aConfigCellBlcok;
+        _gruops = groups;
+        if ([item[0] isKindOfClass:[NSArray class]]) { // 是否二维数组
+            _isTwoDimension = YES;
+        }
+    }
+    
+    return self;
+}
+
 
 - (instancetype)initWithItem:(NSArray *)item
              cellIdentifiers:(NSArray *)aCellIdentifiers
@@ -161,7 +180,7 @@
 
 
 
-- (UITableViewCell *)NormalTableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)normalTableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:_cellId forIndexPath:indexPath];
     
@@ -174,13 +193,42 @@
     return cell;
 }
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)groupTableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (_isNormalCell) {
-        return [self NormalTableView:tableView cellForRowAtIndexPath:indexPath];
+    for (int i = 0; i < _cellIds.count-1; i++) {
+        NSString *cellId = _cellIds[i];
+        for (NSNumber *num in _gruops[cellId]) {
+            if (num.integerValue == indexPath.section) {
+                
+                UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+                
+                cell.selectionStyle = self.cellSelectionStyle;
+                
+                id item = [self itemForIndexPath:indexPath];
+                if (self.configCellBlcok) {
+                    self.configCellBlcok(cell, item);
+                }
+                return cell;
+            }
+        }
     }
     
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[_cellIds lastObject] forIndexPath:indexPath];
+    
+    cell.selectionStyle = self.cellSelectionStyle;
+    
+    id item = [self itemForIndexPath:indexPath];
+    if (self.configCellBlcok) {
+        self.configCellBlcok(cell, item);
+    }
+    
+    return cell;
+}
+
+
+- (UITableViewCell *)nestTableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
     for (int i = 0; i < _cellIds.count-1; i++) {
         NSString *cellId = _cellIds[i];
@@ -192,13 +240,11 @@
                 if (indexPath == idx) {
                     
                     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+                    
                     cell.selectionStyle = self.cellSelectionStyle;
                     
+                    
                     id item = [self itemForIndexPath:indexPath];
-                    
-                   
-                    
-                    
                     if (self.configCellBlcok) {
                         self.configCellBlcok(cell, item);
                     }
@@ -215,8 +261,24 @@
     if (self.configCellBlcok) {
         self.configCellBlcok(cell, item);
     }
-
+    
     return cell;
+}
+
+#pragma mark cell
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if (_isNormalCell) {
+        return [self normalTableView:tableView cellForRowAtIndexPath:indexPath];
+        
+    }else if (_gruops) {
+        return [self groupTableView:tableView cellForRowAtIndexPath:indexPath];
+        
+    }else {
+        return [self nestTableView:tableView cellForRowAtIndexPath:indexPath];
+    }
+    
 }
 
 
@@ -257,8 +319,6 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
         
-       
-        
         if (!_isNormalCell)  {  // 多种cell
             
             // 对比indexPath,调整indexPath
@@ -273,7 +333,6 @@
                         }else if (idx.section == indexPath.section && idx.row > indexPath.row) {
                             [cellIndexs removeObject:idx];
                             [cellIndexs addObject:indexPath];
-                            idx = indexPath;
                         }
                     }
                 }

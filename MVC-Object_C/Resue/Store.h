@@ -9,11 +9,6 @@
 #import <Foundation/Foundation.h>
 
 
-#ifdef DEBUG
-#define LBLog(...)    NSLog(__VA_ARGS__)
-#else
-#define LBLog(...)
-#endif
 
 
 @interface Store : NSObject

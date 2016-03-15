@@ -25,8 +25,24 @@
         [arr addObject:model];
     }
     [data addObject:arr];
+    
     arr = [NSMutableArray array];
     for (int i = 0; i < [dict[@"Data2"] count]; i++) {
+        Model *model = [Model mj_objectWithKeyValues:dict[@"Data2"][i]];
+        [arr addObject:model];
+    }
+    [data addObject:arr];
+    
+    
+    arr = [NSMutableArray array];
+    for (int i = 0; i < [dict[@"Data3"] count]; i++) {
+        Model *model = [Model mj_objectWithKeyValues:dict[@"Data2"][i]];
+        [arr addObject:model];
+    }
+    [data addObject:arr];
+    
+    arr = [NSMutableArray array];
+    for (int i = 0; i < [dict[@"Data4"] count]; i++) {
         Model *model = [Model mj_objectWithKeyValues:dict[@"Data2"][i]];
         [arr addObject:model];
     }
@@ -45,7 +61,6 @@
     id model = [[modelClass alloc] init];
     
     if (model == nil) {
-        LBLog(@"🐶 --> 没有模型类: %@",modelClass);
         return nil;
     }
     

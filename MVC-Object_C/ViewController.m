@@ -56,8 +56,7 @@ static NSString * const CellThreeIdentifier = @"CellThree";
     [self.view addSubview:_tbView];
     _tbView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
-    
-    
+
     
     // 获取数据
     // 本地
@@ -68,68 +67,44 @@ static NSString * const CellThreeIdentifier = @"CellThree";
     
     /**
      *  viewcontroller 控制cell的显示, cell的交互
-     *  DataSource不关注cell的细节处理,只要它们配置数据的方式相同
+     *  DataSource不关注cell的细节处理
      */
     
-#pragma mark  多种 cell
+
     
     // 通过VC 控制 cell显示和交互
     __weak typeof(self) weakSelf = self;
     ConfigCellBlock block = ^(id cell, id item) {
-//        if ([cell isKindOfClass:[UITableViewCell class]]) {
-//            UITableViewCell *configCell = (UITableViewCell *)cell;
-//            configCell.selectionStyle = UITableViewCellSelectionStyleNone; // 统一配置,优先级比属性高
-//        }
-        
         
         [cell configData:item];  // 更新CellUI , method一样直接调
-        
-        if ([cell isKindOfClass:[Cell class]]) {
-            Cell *cellOne = cell;
-            cellOne.selectionStyle = UITableViewCellSelectionStyleNone;  // 单独配置,优先级比属性高
-            cellOne.cellSelect = ^(NSString *name){
-                LBLog(@"name : %@",name);
-            };
-        }else if ([cell isKindOfClass:[CellThree class]]) {
-            CellThree *cellThree = cell;
-            cellThree.cellSelect = ^(UIImage *img){
-                LBLog(@"%@",img);
-            };
-        }
     };
+#pragma mark  单个类型的cell
+    //    _dataSource = [[DataSource alloc] initWithItem:dataArr
+    //                                    cellIdentifier:CellIdentifier
+    //                                    configCellBlcok:block];
     
-    // 对应的indexPath 和cell的关系
-    NSIndexPath *indexPath1 = [NSIndexPath indexPathForRow:1 inSection:0];
-    NSIndexPath *indexPath2 = [NSIndexPath indexPathForRow:2 inSection:1];
-    NSArray *cellTwoIndexPaths = @[indexPath1, indexPath2];
     
-    
-    NSIndexPath *indexPath11 = [NSIndexPath indexPathForRow:4 inSection:0];
-    NSIndexPath *indexPath22 = [NSIndexPath indexPathForRow:6 inSection:1];
-    NSArray *cellThreeIndexPaths = @[indexPath11, indexPath22];
-    
-    NSDictionary *dict = @{
-                           CellTwoIdentifier   : cellTwoIndexPaths,
-                           CellThreeIdentifier : cellThreeIndexPaths
-                           };
-    
-    // 初始化
+#pragma mark  分组cell
+    NSDictionary *group = @{
+                            CellTwoIdentifier   : @[@1, @2],
+                            CellThreeIdentifier : @[@3]
+                            };
     _dataSource = [[DataSource alloc] initWithItem:dataArr
-                                   cellIdentifiers:@[CellTwoIdentifier, CellThreeIdentifier, CellIdentifier]
-                               cellRelateIndexPath:dict
+                                   cellIdentifiers:@[CellTwoIdentifier,
+                                                     CellThreeIdentifier ,
+                                                     CellIdentifier]
+                                            groups:group
                                    configCellBlcok:block];
-#pragma mark   单个类型的cell
-//        _dataSource = [[DataSource alloc] initWithItem:dataArr
-//                                        cellIdentifier:CellIdentifier
-//                                       configCellBlcok:^(id cell, id item) {
-//                                            [cell configData:item];
-//                                       }];
+    
+#pragma mark 嵌套cell 见 DataSource.h
+    
+    
     
 #pragma mark   appendix
-//    _dataSource.cellSelectionStyle = UITableViewCellSelectionStyleDefault; // 统一配置,优先级低
-//    _dataSource.headerArr = @[@"a", @"b", @"c"];
-//    _dataSource.footerArr = @[@"footer-a", @"footer-b", @"footer-c"];
-//    _dataSource.sectionIndex = @[@"index-a", @"index-b", @"index-c"];
+    _dataSource.cellSelectionStyle = UITableViewCellSelectionStyleDefault; // 统一配置,优先级低
+    _dataSource.headerArr = @[@"a", @"b", @"c", @"d"];
+    _dataSource.footerArr = @[@"footer-a", @"footer-b", @"footer-c", @"footer-d"];
+    _dataSource.sectionIndex = @[@"index-a", @"index-b", @"index-c", @"index-d"];
     
     
     _tbView.dataSource = _dataSource;
@@ -176,13 +151,20 @@ static NSString * const CellThreeIdentifier = @"CellThree";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ((indexPath.section == 0 && indexPath.row == 1)
-        || (indexPath.section == 1 && indexPath.row == 2))
-    {
+//    if ((indexPath.section == 0 && indexPath.row == 1)
+//        || (indexPath.section == 1 && indexPath.row == 2))
+//    {
+//        return 126;
+//    }else if ((indexPath.section == 0 && indexPath.row == 4)
+//              || (indexPath.section == 1 && indexPath.row == 6))
+//    {
+//        return 120;
+//    }
+//    return 44;
+    
+    if (indexPath.section == 1 || indexPath.section == 2 ) {
         return 126;
-    }else if ((indexPath.section == 0 && indexPath.row == 4)
-              || (indexPath.section == 1 && indexPath.row == 6))
-    {
+    }else if (indexPath.section == 3){
         return 120;
     }
     return 44;
