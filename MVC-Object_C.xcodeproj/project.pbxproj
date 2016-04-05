@@ -9,6 +9,17 @@
 /* Begin PBXBuildFile section */
 		5D07F90500700A087AFFDBA1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 437D4BCE40F0618340199028 /* libPods.a */; };
 		790CD3BA1C9809C60026E143 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 790CD3B91C9809C60026E143 /* icon.png */; };
+		79481CF01C9FC8D10034A9A7 /* CollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79481CEF1C9FC8D10034A9A7 /* CollectViewController.m */; };
+		79481CF31C9FC8DA0034A9A7 /* CollectDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 79481CF21C9FC8DA0034A9A7 /* CollectDataSource.m */; };
+		79481CF71C9FC8ED0034A9A7 /* CollectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79481CF51C9FC8ED0034A9A7 /* CollectCell.m */; };
+		79481CF81C9FC8ED0034A9A7 /* CollectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79481CF61C9FC8ED0034A9A7 /* CollectCell.xib */; };
+		79481CFF1C9FCC380034A9A7 /* CollectCellTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 79481CFD1C9FCC380034A9A7 /* CollectCellTwo.m */; };
+		79481D001C9FCC380034A9A7 /* CollectCellTwo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79481CFE1C9FCC380034A9A7 /* CollectCellTwo.xib */; };
+		79481D031C9FE46D0034A9A7 /* CustomLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 79481D021C9FE46D0034A9A7 /* CustomLayout.m */; };
+		795049F21CB35C8600CE43D9 /* SectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 795049F01CB35C8600CE43D9 /* SectionHeader.m */; };
+		795049F31CB35C8600CE43D9 /* SectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 795049F11CB35C8600CE43D9 /* SectionHeader.xib */; };
+		795049FA1CB3657000CE43D9 /* SectionFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 795049F81CB3657000CE43D9 /* SectionFooter.m */; };
+		795049FB1CB3657000CE43D9 /* SectionFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 795049F91CB3657000CE43D9 /* SectionFooter.xib */; };
 		79BE07341C916E4D00EC76A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79BE07331C916E4D00EC76A9 /* main.m */; };
 		79BE07371C916E4D00EC76A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79BE07361C916E4D00EC76A9 /* AppDelegate.m */; };
 		79BE073A1C916E4D00EC76A9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79BE07391C916E4D00EC76A9 /* ViewController.m */; };
@@ -33,6 +44,24 @@
 		437D4BCE40F0618340199028 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5425C8F9502D44AEEBF7AE75 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		790CD3B91C9809C60026E143 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		79481CEE1C9FC8D10034A9A7 /* CollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectViewController.h; sourceTree = "<group>"; };
+		79481CEF1C9FC8D10034A9A7 /* CollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectViewController.m; sourceTree = "<group>"; };
+		79481CF11C9FC8DA0034A9A7 /* CollectDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectDataSource.h; sourceTree = "<group>"; };
+		79481CF21C9FC8DA0034A9A7 /* CollectDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectDataSource.m; sourceTree = "<group>"; };
+		79481CF41C9FC8ED0034A9A7 /* CollectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectCell.h; sourceTree = "<group>"; };
+		79481CF51C9FC8ED0034A9A7 /* CollectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectCell.m; sourceTree = "<group>"; };
+		79481CF61C9FC8ED0034A9A7 /* CollectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectCell.xib; sourceTree = "<group>"; };
+		79481CFC1C9FCC380034A9A7 /* CollectCellTwo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectCellTwo.h; sourceTree = "<group>"; };
+		79481CFD1C9FCC380034A9A7 /* CollectCellTwo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectCellTwo.m; sourceTree = "<group>"; };
+		79481CFE1C9FCC380034A9A7 /* CollectCellTwo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectCellTwo.xib; sourceTree = "<group>"; };
+		79481D011C9FE46D0034A9A7 /* CustomLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLayout.h; sourceTree = "<group>"; };
+		79481D021C9FE46D0034A9A7 /* CustomLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLayout.m; sourceTree = "<group>"; };
+		795049EF1CB35C8600CE43D9 /* SectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionHeader.h; sourceTree = "<group>"; };
+		795049F01CB35C8600CE43D9 /* SectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionHeader.m; sourceTree = "<group>"; };
+		795049F11CB35C8600CE43D9 /* SectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeader.xib; sourceTree = "<group>"; };
+		795049F71CB3657000CE43D9 /* SectionFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionFooter.h; sourceTree = "<group>"; };
+		795049F81CB3657000CE43D9 /* SectionFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionFooter.m; sourceTree = "<group>"; };
+		795049F91CB3657000CE43D9 /* SectionFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionFooter.xib; sourceTree = "<group>"; };
 		79BE072F1C916E4D00EC76A9 /* MVC-Object_C.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MVC-Object_C.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79BE07331C916E4D00EC76A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		79BE07351C916E4D00EC76A9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -105,6 +134,8 @@
 				79BE074B1C916F3300EC76A9 /* Resue */,
 				79BE07381C916E4D00EC76A9 /* ViewController.h */,
 				79BE07391C916E4D00EC76A9 /* ViewController.m */,
+				79481CEE1C9FC8D10034A9A7 /* CollectViewController.h */,
+				79481CEF1C9FC8D10034A9A7 /* CollectViewController.m */,
 				79BE07351C916E4D00EC76A9 /* AppDelegate.h */,
 				79BE07361C916E4D00EC76A9 /* AppDelegate.m */,
 				79BE07691C916FCC00EC76A9 /* LocalTest.plist */,
@@ -139,6 +170,18 @@
 				79BE07521C916F8500EC76A9 /* CellThree.h */,
 				79BE07531C916F8500EC76A9 /* CellThree.m */,
 				79BE07541C916F8500EC76A9 /* CellThree.xib */,
+				79481CF41C9FC8ED0034A9A7 /* CollectCell.h */,
+				79481CF51C9FC8ED0034A9A7 /* CollectCell.m */,
+				79481CF61C9FC8ED0034A9A7 /* CollectCell.xib */,
+				79481CFC1C9FCC380034A9A7 /* CollectCellTwo.h */,
+				79481CFD1C9FCC380034A9A7 /* CollectCellTwo.m */,
+				79481CFE1C9FCC380034A9A7 /* CollectCellTwo.xib */,
+				795049EF1CB35C8600CE43D9 /* SectionHeader.h */,
+				795049F01CB35C8600CE43D9 /* SectionHeader.m */,
+				795049F11CB35C8600CE43D9 /* SectionHeader.xib */,
+				795049F71CB3657000CE43D9 /* SectionFooter.h */,
+				795049F81CB3657000CE43D9 /* SectionFooter.m */,
+				795049F91CB3657000CE43D9 /* SectionFooter.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -157,6 +200,10 @@
 			children = (
 				79BE075E1C916F9800EC76A9 /* DataSource.h */,
 				79BE075F1C916F9800EC76A9 /* DataSource.m */,
+				79481CF11C9FC8DA0034A9A7 /* CollectDataSource.h */,
+				79481CF21C9FC8DA0034A9A7 /* CollectDataSource.m */,
+				79481D011C9FE46D0034A9A7 /* CustomLayout.h */,
+				79481D021C9FE46D0034A9A7 /* CustomLayout.m */,
 				79BE07601C916F9800EC76A9 /* Store.h */,
 				79BE07611C916F9800EC76A9 /* Store.m */,
 			);
@@ -245,10 +292,14 @@
 				79BE07681C916FAF00EC76A9 /* CellSelectController.xib in Resources */,
 				790CD3BA1C9809C60026E143 /* icon.png in Resources */,
 				79BE07561C916F8500EC76A9 /* Cell.xib in Resources */,
+				79481D001C9FCC380034A9A7 /* CollectCellTwo.xib in Resources */,
+				79481CF81C9FC8ED0034A9A7 /* CollectCell.xib in Resources */,
 				79BE073F1C916E4D00EC76A9 /* Assets.xcassets in Resources */,
 				79BE076A1C916FCC00EC76A9 /* LocalTest.plist in Resources */,
+				795049F31CB35C8600CE43D9 /* SectionHeader.xib in Resources */,
 				79BE07581C916F8500EC76A9 /* CellTwo.xib in Resources */,
 				79BE075A1C916F8500EC76A9 /* CellThree.xib in Resources */,
+				795049FB1CB3657000CE43D9 /* SectionFooter.xib in Resources */,
 				79BE073D1C916E4D00EC76A9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,11 +362,18 @@
 				79BE073A1C916E4D00EC76A9 /* ViewController.m in Sources */,
 				79BE07551C916F8500EC76A9 /* Cell.m in Sources */,
 				79BE07621C916F9800EC76A9 /* DataSource.m in Sources */,
+				79481CF31C9FC8DA0034A9A7 /* CollectDataSource.m in Sources */,
+				79481CF71C9FC8ED0034A9A7 /* CollectCell.m in Sources */,
 				79BE07671C916FAF00EC76A9 /* CellSelectController.m in Sources */,
+				79481D031C9FE46D0034A9A7 /* CustomLayout.m in Sources */,
+				79481CFF1C9FCC380034A9A7 /* CollectCellTwo.m in Sources */,
+				795049F21CB35C8600CE43D9 /* SectionHeader.m in Sources */,
 				79BE07591C916F8500EC76A9 /* CellThree.m in Sources */,
 				79BE07371C916E4D00EC76A9 /* AppDelegate.m in Sources */,
 				79BE075D1C916F9100EC76A9 /* Model.m in Sources */,
+				795049FA1CB3657000CE43D9 /* SectionFooter.m in Sources */,
 				79BE07631C916F9800EC76A9 /* Store.m in Sources */,
+				79481CF01C9FC8D10034A9A7 /* CollectViewController.m in Sources */,
 				79BE07571C916F8500EC76A9 /* CellTwo.m in Sources */,
 				79BE07341C916E4D00EC76A9 /* main.m in Sources */,
 			);

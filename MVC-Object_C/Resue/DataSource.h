@@ -19,7 +19,7 @@
 #pragma mark - Block
 // viewcontroller 去配置 cell
 
-typedef void (^ConfigCellBlock)(id cell, id item);
+typedef void (^ConfigCellBlock)(id cell, id item, NSIndexPath *indexPath);
 
 
 
@@ -109,7 +109,7 @@ typedef void (^ConfigCellBlock)(id cell, id item);
 #pragma mark  Cell-Block
 /*
  
- ConfigCellBlock block = ^(id cell, id item) {
+ ConfigCellBlock block = ^(id cell, id item, NSIndexPath *indexPath) {
  
     if ([cell isKindOfClass:[UITableViewCell class]]) {
         UITableViewCell *configCell = (UITableViewCell *)cell;
@@ -138,7 +138,7 @@ typedef void (^ConfigCellBlock)(id cell, id item);
 /*
  _dataSource = [[DataSource alloc] initWithItem:dataArr
                                  cellIdentifier:CellIdentifier
-                                configCellBlcok:^(id cell, id item) {
+                                configCellBlcok:^(id cell, id item, NSIndexPath *indexPath) {
                                     [cell configData:item];
                                 }];
 */

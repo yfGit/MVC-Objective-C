@@ -74,7 +74,7 @@ static NSString * const CellThreeIdentifier = @"CellThree";
     
     // 通过VC 控制 cell显示和交互
     __weak typeof(self) weakSelf = self;
-    ConfigCellBlock block = ^(id cell, id item) {
+    ConfigCellBlock block = ^(id cell, id item, NSIndexPath *indexPath) {
         
         [cell configData:item];  // 更新CellUI , method一样直接调
     };
@@ -121,8 +121,7 @@ static NSString * const CellThreeIdentifier = @"CellThree";
         [weakSelf.tbView reloadData];
         [_tbView.mj_header endRefreshing];
     }];
-    
-    
+
 }
 
 #pragma mark- updateData

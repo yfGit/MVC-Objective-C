@@ -187,7 +187,7 @@
     id item = [self itemForIndexPath:indexPath];
     
     if (self.configCellBlcok) {
-        self.configCellBlcok(cell, item);
+        self.configCellBlcok(cell, item, indexPath);
     }
     
     return cell;
@@ -206,7 +206,7 @@
                 
                 id item = [self itemForIndexPath:indexPath];
                 if (self.configCellBlcok) {
-                    self.configCellBlcok(cell, item);
+                    self.configCellBlcok(cell, item, indexPath);
                 }
                 return cell;
             }
@@ -220,7 +220,7 @@
     
     id item = [self itemForIndexPath:indexPath];
     if (self.configCellBlcok) {
-        self.configCellBlcok(cell, item);
+        self.configCellBlcok(cell, item, indexPath);
     }
     
     return cell;
@@ -246,7 +246,7 @@
                     
                     id item = [self itemForIndexPath:indexPath];
                     if (self.configCellBlcok) {
-                        self.configCellBlcok(cell, item);
+                        self.configCellBlcok(cell, item, indexPath);
                     }
                     return cell;
                 }
@@ -259,7 +259,7 @@
     cell.selectionStyle = self.cellSelectionStyle;
     
     if (self.configCellBlcok) {
-        self.configCellBlcok(cell, item);
+        self.configCellBlcok(cell, item, indexPath);
     }
     
     return cell;

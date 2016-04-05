@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MF3-3A-GQF">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+                    <color key="backgroundColor" red="0.70011835749999995" green="0.72608173080000005" blue="0.57953286020000006" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Footer"/>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="MF3-3A-GQF" secondAttribute="bottom" id="4uO-yi-uzL"/>
+                <constraint firstItem="MF3-3A-GQF" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="Qen-8h-xVL"/>
+                <constraint firstItem="MF3-3A-GQF" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="bQT-iL-pXv"/>
+                <constraint firstAttribute="trailing" secondItem="MF3-3A-GQF" secondAttribute="trailing" constant="20" id="vnu-6v-tuf"/>
+            </constraints>
+        </collectionReusableView>
+    </objects>
+</document>
